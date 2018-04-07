@@ -1,0 +1,8 @@
+---
+- name: Ensure pyenv repo is cloned.
+  git:
+    repo: "{{ pyenv_src }}"
+    dest: "{{ pyenv_dst }}"
+    depth: 1
+  tags:
+    - pyenv

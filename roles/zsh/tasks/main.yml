@@ -1,0 +1,31 @@
+---
+- name: Ensure zsh is installed.
+  apt:
+    name: zsh
+  sudo: yes
+  tags:
+    - zsh
+
+- include: ../../homeshick/tasks/clone_castle.yml
+  vars:
+    castles:
+      - zplug/zplug
+      - toshiya240/dotfiles-zsh
+  tags:
+    - zsh
+
+- include: ../../homeshick/tasks/link_dotfiles.yml
+  vars:
+    castles:
+      - toshiya240/dotfiles-zsh
+  tags:
+    - zsh
+
+- name: Ensure zsh is login shell.
+  user:
+    name: "{{ lookup('env', 'USER') }}"
+    shell: /usr/bin/zsh
+  sudo: yes
+  when: "lookup('env', 'SHELL') != '/usr/bin/zsh'"
+  tags:
+    - zsh

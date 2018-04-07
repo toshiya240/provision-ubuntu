@@ -1,0 +1,12 @@
+---
+- include: ../../homeshick/tasks/clone_castle.yml
+  vars:
+    castles: "{{ homeshick_castles }}"
+  tags:
+    - dotfiles
+
+- include: ../../homeshick/tasks/link_dotfiles.yml
+  vars:
+    castles: ""
+  tags:
+    - dotfiles

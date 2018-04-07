@@ -1,0 +1,9 @@
+---
+- name: Ensure pip3 pkgs are instaled.
+  pip:
+    name: "{{ item.name }}"
+    state: present
+    state: "{{ item.state }}"
+    executable: pip3
+  sudo: yes
+  with_items: "{{ pkgs }}"

@@ -1,0 +1,16 @@
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - base
+    - dotfiles
+    - python2
+    - python3
+    - pyenv
+    - ruby
+    - rbenv
+    - vim
+    - zsh
+    - productivity
+    - documentation
+    - image_processing

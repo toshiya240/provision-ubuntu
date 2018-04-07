@@ -1,0 +1,17 @@
+---
+- name: Ensure ruby is installed.
+  apt:
+    name: "{{ item }}"
+  sudo: yes
+  with_items:
+    - ruby
+  tags:
+    - ruby
+
+- include: ../../ruby/tasks/gem.yml
+  vars:
+    gems:
+      - name: bundler
+        state: present
+  tags:
+    - ruby

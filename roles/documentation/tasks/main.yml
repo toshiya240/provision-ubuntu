@@ -1,0 +1,32 @@
+---
+- name: Ensure apt pkgs are installed.
+  apt:
+    name: "{{ item }}"
+  sudo: yes
+  with_items:
+    - pandoc
+  tags:
+    - documentation
+
+- include: ../../ruby/tasks/gem.yml
+  vars:
+    gems:
+      - name: asciidoctor
+        state: present
+      # requires Ruby 2.0
+      # - name: kramdown
+      #   state: present
+      - name: pygments.rb
+        state: present
+  tags:
+    - documentation
+
+- include: ../../python3/tasks/pip.yml
+  vars:
+    pkgs:
+      - name: Pygments
+        state: present
+      - name: Sphinx
+        state: present
+  tags:
+    - documentation

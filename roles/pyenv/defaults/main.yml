@@ -1,0 +1,3 @@
+---
+pyenv_src: "https://github.com/pyenv/pyenv.git"
+pyenv_dst: "~/.pyenv"

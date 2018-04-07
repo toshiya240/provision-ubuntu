@@ -1,0 +1,14 @@
+---
+- name: Ensure apt is updated.
+  apt:
+    update_cache: yes
+  sudo: yes
+  tags:
+    - base
+
+- name: Ensure git is installed.
+  apt:
+    name: git
+  sudo: yes
+  tags:
+    - base

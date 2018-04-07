@@ -1,0 +1,10 @@
+---
+- name: Ensure rbenv is installed.
+  apt:
+    name: "{{ item.name }}"
+  sudo: yes
+  with_items:
+    - name: rbenv
+    - name: ruby-build
+  tags:
+    - rbenv

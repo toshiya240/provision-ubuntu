@@ -1,0 +1,19 @@
+---
+- name: Ensure apt pkgs are installed.
+  apt:
+    name: "{{ item.name }}"
+  sudo: yes
+  with_items:
+    - name: dos2unix
+    - name: gawk
+    - name: sed
+    - name: htop
+    - name: jq
+    - name: p7zip
+    - name: source-highlight
+    - name: silversearcher-ag
+    - name: tig
+    - name: tmux
+    - name: tree
+  tags:
+    - productivity

@@ -1,0 +1,22 @@
+---
+- name: Ensure vim is installed.
+  apt:
+    name: vim-nox
+  sudo: yes
+  tags:
+    - vim
+
+- include: ../../homeshick/tasks/clone_castle.yml
+  vars:
+    castles:
+      - Shougo/dein.vim
+      - toshiya240/dotfiles-vim
+  tags:
+    - vim
+
+- include: ../../homeshick/tasks/link_dotfiles.yml
+  vars:
+    castles:
+      - toshiya240/dotfiles-vim
+  tags:
+    - vim

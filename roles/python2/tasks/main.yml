@@ -1,0 +1,26 @@
+---
+- name: Ensure python2 is installed.
+  apt:
+    name: "{{ item.name }}"
+  sudo: yes
+  with_items:
+    - name: python
+    - name: python-pip
+  tags:
+    - python
+    - python2
+
+- name: Ensure basic pip2 pkgs are installed.
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    executable: pip2
+  sudo: yes
+  with_items:
+    - name: pip
+      state: latest
+    # - name: pipenv
+    #   state: present
+  tags:
+    - python
+    - python2
