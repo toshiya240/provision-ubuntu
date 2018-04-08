@@ -17,3 +17,13 @@
     - name: tree
   tags:
     - productivity
+
+- name: Ensure pip2 pkgs are installed.
+  pip:
+    name: "{{ item.name }}"
+    executable: pip2
+  sudo: yes
+  with_items:
+    - name: percol
+  tags:
+    - productivity
