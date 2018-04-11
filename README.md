@@ -13,5 +13,5 @@ Usage
 
 ```sh
 $ ./prerequisites.sh
-$ ./provison.sh
+$ ./provision.sh
 ```
